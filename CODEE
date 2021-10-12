@@ -1,0 +1,141 @@
+import java.util.*;
+class tictac
+{
+public static void main(String at[])throws Exception
+{
+Scanner sc=new Scanner(System.in);
+int c,r,x,i,ch,r1,c1,k,j,h=0,r2=0,n,e=0,f=0,p=0,q=0,z=0,k2=0;
+for(x=1;x<=18;x++)
+{
+System.out.print(" ");
+System.out.println(" ");
+}
+System.out.println("         ");
+Thread.sleep(76);
+System.out.println("         #            #    ######  #       ###### ###### ##     ##  ######  ");
+Thread.sleep(76);                     
+System.out.println("          #          #     #       #       #      #    # #  # #  #  #       ");
+Thread.sleep(76);
+System.out.println("           #    #    #     ####    #       #      #    # #   #   #  ####    ");
+Thread.sleep(76);
+System.out.println("            #  #  #  #     #       #       #      #    # #       #  #       ");
+Thread.sleep(76);             
+System.out.println("             #      #      ######  ####### ###### ###### #       #  ######  ");
+Thread.sleep(76);
+System.out.println("         ");
+Thread.sleep(1000);
+for(i=1;i<=20;i++)
+{
+System.out.println(" ");         
+Thread.sleep(75);
+}
+System.out.println("                   ....INSTRUCTIONS......"+"\n"+"     * Take turns to play the game"+"\n"+"     * For player1 use @, for player2 use #"+"\n"+"      * Do not choose the spaces which are already filled"+"\n"+"     * First one to complete the number of symbols as given is the winner"+"\n");
+Thread.sleep(800);
+for(i=1;i<=20;i++)
+{
+System.out.println(" ");
+Thread.sleep(75);
+}
+System.out.println("                           LET'S START<<<<<<<<<"+"\n");
+Thread.sleep(1000);
+System.out.println(" ");
+System.out.println("enter no of rows and columns");
+r=sc.nextInt();
+c=sc.nextInt();
+char t[][]=new char[r][c];
+System.out.println(" ");
+System.out.println("enter number of crosses");
+x=sc.nextInt();
+System.out.println(" ");
+n=c;
+System.out.println("enter choice(1-player1,2-player2)");
+ch=sc.nextInt();
+lb:for(k=1;k>=0;k++)
+{
+switch(ch)
+{
+case 1:
+System.out.println("enter rows and columns by player 1");
+r1=sc.nextInt();
+c1=sc.nextInt();
+t[r1][c1]='@';
+for(i=0;i<r;i++)
+{
+if(t[i][c1]=='@')                                                                                           //rows
+e++;
+else
+e=0;
+for(j=0;j<c;j++)
+{
+if(t[r1][j]=='@')                                                                                            //column
+h++;
+else
+h=0;
+if(i==j)                                                                                                         //right diagonal
+{
+if(t[i][j]=='@')
+f++;
+else
+f=0;
+}
+if((i+j)==(n-1))                                                                                              //left diagonal
+{
+if(t[i][j]=='@')
+z++;
+else
+z=0;
+}
+System.out.print(t[i][j]+"|");
+}
+System.out.println();
+if(h==x || e==x || f==x || z==x)
+{
+System.out.println("PLAYER1 WINS");
+break lb;
+}
+}
+case 2:
+System.out.println("enter rows and columns by player 2");
+r1=sc.nextInt();
+c1=sc.nextInt();
+//if(t[r1][c1]==' ')
+t[r1][c1]='#';  
+for(i=0;i<r;i++)
+{
+if(t[i][c1]=='#')
+p++;
+else
+p=0;
+for(j=0;j<c;j++)
+{
+if(t[r1][j]=='#')
+q++;
+else
+q=0;
+if(i==j)
+{
+if(t[i][j]=='#')
+r2++;
+else
+r2=0;
+}
+if((i+j)==(n-1))
+{
+if(t[i][j]=='#')               
+k2++;
+else
+k2=0;
+}
+System.out.print(t[i][j]+"|");
+}
+System.out.println();
+if(p==x || q==x || r2==x || k2==x)
+{
+System.out.println("player2 wins");
+break lb;
+}
+}
+}
+}
+}
+}
